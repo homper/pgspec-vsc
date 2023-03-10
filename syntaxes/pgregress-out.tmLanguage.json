@@ -1,0 +1,17 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PostgreSQL Regression Result",
+	"patterns": [
+		{
+			"begin": "^",
+			"contentName": "meta.embedded.block.sql",
+			"while": "^",
+			"patterns": [
+				{
+					"include": "source.sql"
+				}
+			]
+		}
+	],
+	"scopeName": "source.pgregress-out"
+}

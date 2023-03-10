@@ -10,6 +10,9 @@
     "categories": [
         "Programming Languages"
     ],
+    "activationEvents": ["onLanguage:sql", "onLanguage:pgspec",
+                         "onLanguage:pgregress-out", "onLanguage:pgspec-out"],
+    "main": "main.js",
     "contributes": {
         "languages": [
             {
@@ -21,7 +24,39 @@
                 "extensions": [
                     "spec"
                 ],
-                "configuration": "./language-configuration.json"
+                "configuration": "./pgspec-configuration.json",
+                "icon": {
+                    "dark": "./icons/pgspec-dark.svg",
+                    "light": "./icons/pgspec.svg"
+                }
+            },
+            {
+                "id": "pgspec-out",
+                "aliases": [
+                    "PostgreSQL Spec Result",
+                    "pgspec-out"
+                ],
+                "extensions": [
+                    "out"
+                ],
+                "icon": {
+                    "dark": "./icons/pgspec-out-dark.svg",
+                    "light": "./icons/pgspec-out.svg"
+                }
+            },
+            {
+                "id": "pgregress-out",
+                "aliases": [
+                    "PostgreSQL Regression Result",
+                    "pgregress-out"
+                ],
+                "extensions": [
+                    "out"
+                ],
+                "icon": {
+                    "dark": "./icons/pgregress-out-dark.svg",
+                    "light": "./icons/pgregress-out.svg"
+                }
             }
         ],
         "grammars": [
@@ -32,8 +67,32 @@
                 "embeddedLanguages": {
                     "meta.embedded.block.sql": "sql"
                 }
+            },
+            {
+                "language": "pgspec-out",
+                "scopeName": "source.pgspec-out",
+                "path": "./syntaxes/pgspec-out.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.sql": "sql"
+                }
+            },
+            {
+                "language": "pgregress-out",
+                "scopeName": "source.pgregress-out",
+                "path": "./syntaxes/pgregress-out.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.sql": "sql"
+                }
             }
-        ]
+        ],
+        "configurationDefaults": {
+            "[pgregress-out]": {
+                "files.trimTrailingWhitespace": false
+            },
+            "[pgspec-out]": {
+                "files.trimTrailingWhitespace": false
+            }
+        }
     },
     "repository": {
         "type": "git",

@@ -1,0 +1,46 @@
+# SYNTAX TEST "source.pgspec-out" "sample testcase"
+
+# vscode-tmgrammar-test "test/test.out" -g ~/.vscode/extensions/onlined.pgspec-1.0.1/syntaxes/pgspec-out.tmLanguage.json --config ~/.vscode/extensions/onlined.pgspec-1.0.1/package.json -g /System/Volumes/Data/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/extensions/sql/syntaxes/sql.tmLanguage.json
+
+unused step name: not_working
+# <---------------- keyword.control.pgspec-out
+#                ^^^^^^^^^^^ source.pgspec-out
+unused step name: working
+# <---------------- keyword.control.pgspec-out
+#                ^^^^^^^^^^^ source.pgspec-out
+Parsed test spec with 3 sessions
+
+starting permutation: checking insert_1 select_1 begin_1 begin_2 delete_1 ioc_2
+# <-------------------- keyword.control.pgspec-out
+step checking: 
+# <- keyword.control.pgspec-out
+#   ^ - keyword.control.pgspec-out
+SELECT E'--------------------------------------------------------\n' ||
+# <- meta.embedded.block.sql
+		'-- CHECKING: ' || nextval('test_num') ||
+	   E'\n-------------------------------------------------------';
+# <- meta.embedded.block.sql
+
+# <- meta.embedded.block.sql
+?column?                                                                                                                       
+# <- meta.embedded.block.sql
+-------------------------------------------------------------------------------------------------------------------------------
+# <- meta.embedded.block.sql
+--------------------------------------------------------
+# <- meta.embedded.block.sql
+-- CHECKING: 1
+# <- meta.embedded.block.sql
+-------------------------------------------------------
+# <- meta.embedded.block.sql
+(1 row)
+# <- meta.embedded.block.sql
+
+# <- meta.embedded.block.sql
+step insert_1: INSERT INTO o_test_1 VALUES (4, 1);
+# <---- keyword.control.pgspec-out
+#    ^ - keyword.control.pgspec-out
+#              ^ meta.embedded.block.sql
+step select_1: 
+# <- keyword.control.pgspec-out
+#   ^ - keyword.control.pgspec-out
+					SELECT * FROM o_test_1 ORDER BY val_1;

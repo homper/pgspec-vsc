@@ -1,0 +1,35 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PostgreSQL Spec Result",
+	"patterns": [
+		{
+			"name": "keyword.control.pgspec-out",
+			"match": "\\b(unused step name|starting permutation)\\b"
+		},
+		{
+			"name": "string.quoted.double.pgspec-out",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.pgspec-out",
+					"match": "\\\\."
+				}
+			]
+		},
+		{
+			"begin": "(step) .*?:",
+			"beginCaptures": {
+							"1": {"name": "keyword.control.pgspec-out"}
+						},
+			"contentName": "meta.embedded.block.sql",
+			"end": "(?=step|starting permutation)",
+			"patterns": [
+				{
+					"include": "source.sql"
+				}
+			]
+		}
+	],
+	"scopeName": "source.pgspec-out"
+}
